@@ -1,10 +1,13 @@
 {
   "name": "booksy-booker",
-  "type": "module",
+  "version": "1.0.0",
   "private": true,
-  "scripts": { "start": "node server.js" },
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "express": "^4.19.2",
-    "playwright": "1.55.1"   // <- exact version, no caret
+    "express": "4.19.2",
+    "playwright": "1.55.1"
   }
 }
