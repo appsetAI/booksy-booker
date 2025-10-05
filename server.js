@@ -24,3 +24,17 @@ app.post("/booksy/book", async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log("Booksy booker listening on", PORT));
+import { getBrowser } from "./booksy.js";
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, async () => {
+  console.log("Booksy booker listening on", PORT);
+  // Prewarm Playwright so the first call is fast
+  try {
+    await getBrowser();
+    console.log("Playwright browser prewarmed");
+  } catch (e) {
+    console.error("Prewarm failed (will retry on first request):", e.message);
+  }
+});
+
